@@ -92,6 +92,7 @@ const HELP_TEXT = `<br>Available commands:<br><br>
   <a class="link" onclick="executeCommand('cat', true)">cat [file]</a>   - Print the contents of a file (e.g. <a class="link" onclick="executeCommand('cat about.txt', true)">cat about.txt</a>)<br>
   <a class="link" onclick="executeCommand('cd experience', true)">cd [dir]</a>     - Change directory (e.g. <a class="link" onclick="executeCommand('cd experience', true)">cd experience</a>)<br>
   <a class="link" onclick="executeCommand('pwd', true)">pwd</a>          - Print working directory<br>
+  <a class="link" onclick="executeCommand('startx', true)">startx</a>       - Launch the graphical UI portfolio<br>
   <a class="link" onclick="executeCommand('clear', true)">clear</a>        - Clear the terminal screen<br>
   <a class="link" onclick="executeCommand('help', true)">help</a>         - Display this help message<br><br>
   <span class="info-text">Tip: Click any blue link to automatically execute the command!</span><br><br>`;
@@ -203,7 +204,7 @@ hiddenInput.addEventListener('keydown', (e) => {
         let matches = [];
         if (args.length === 1) {
             // Completing base commands
-            const cmds = ['ls', 'cat', 'cd', 'pwd', 'clear', 'help', 'whoami', 'echo', 'date', 'rm', 'neofetch', 'theme'];
+            const cmds = ['ls', 'cat', 'cd', 'pwd', 'clear', 'help', 'whoami', 'echo', 'date', 'rm', 'neofetch', 'theme', 'startx', 'gui'];
             matches = cmds.filter(c => c.startsWith(args[0].toLowerCase()));
         } else if (args.length === 2 && (args[0].toLowerCase() === 'cat' || args[0].toLowerCase() === 'cd')) {
             // Completing files or directories
@@ -377,6 +378,15 @@ window.executeCommand = async function (cmdRaw, fromClick = false) {
         } else {
             output = `<br><span class="error-text">theme: '${target}' not found.</span><br>`;
         }
+    } else if (baseCmd === 'startx' || baseCmd === 'gui') {
+        output = `<br><div class="info-text">Initiating X Window System...<br>Switching to graphical interface...</div><br>`;
+        appendHistoryBlock(`${currentPromptHTML} <span class="cmd-echo">${cmdRaw}</span>`, output);
+        if (fromClick) { hiddenInput.focus(); }
+        isTyping = true; // Lock down typing naturally
+        setTimeout(() => {
+            window.location.href = '/portfoliosite';
+        }, 1200);
+        return; // Early return because we manually appended history
     } else if (baseCmd === 'date') {
         output = `<br>${new Date().toString()}<br>`;
     } else if (baseCmd === 'rm') {
