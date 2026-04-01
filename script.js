@@ -24,16 +24,19 @@ function updatePrompt() {
 }
 
 const FILE_SYSTEM = {
-    'about.txt': { type: 'file', content: `<br>Hi, I am <b>Naveen Chowdary Edala</b>.<br>
+    'about.txt': {
+        type: 'file', content: `<br>Hi, I am <b>Naveen Chowdary Edala</b>.<br>
 A highly capable "technology generalist" currently operating as a <b>Manager - Associate Tech Lead</b> within the Office of Ananya Birla (OAB) at Aditya Birla Management Corporation Pvt Ltd (ABMCPL).<br>
 I thrive on building successful products and teams, evolving from hands-on software engineering and research into high-level technical leadership, architecture, and GenAI product development.<br><br>
 Run <a class="link" onclick="executeCommand('cat value.txt', true)">cat value.txt</a> to read about my unique value proposition, or <a class="link" onclick="executeCommand('cat skills.txt', true)">cat skills.txt</a> for my technical stack.<br>` },
 
-    'value.txt': { type: 'file', content: `<br><span class="info-text">--- Unique Value Proposition ---</span><br><br>
+    'value.txt': {
+        type: 'file', content: `<br><span class="info-text">--- Unique Value Proposition ---</span><br><br>
 Across a decade of fascination with tech, I've dabbled in many things: Game design in Unity/Unreal Engine, Android app development, Basic IoT with Arduinos/Raspberry Pis, competitive coding, web development, and now Generative AI and cloud architecture.<br><br>
 I am unique in that I can wear multiple hats - I can be a hands-on developer, a tech lead, a manager, a mentor, a tutor, and a friend. I take pride in being the <b>swiss army knife</b> of any team. I can effectively play second fiddle to specialist technical members by copiloting them in areas they are weak in, ensuring holistic team growth and robust decision-making.<br>` },
 
-    'skills.txt': { type: 'file', content: `<br><span class="info-text">--- Technical Skillset & Competencies ---</span><br><br>
+    'skills.txt': {
+        type: 'file', content: `<br><span class="info-text">--- Technical Skillset & Competencies ---</span><br><br>
 <div class="grid-container">
     <div><span class="prompt-host">Generative AI & LLMs</span><br>Google Gemini, Azure OpenAI Services</div>
     <div><span class="success-text">Frontend Development</span><br>React.js, Material UI, Storybook, TypeScript, Javascript</div>
@@ -42,22 +45,25 @@ I am unique in that I can wear multiple hats - I can be a hands-on developer, a 
     <div><span class="prompt-path">Leadership</span><br>E2E Product Management, Architecture, Tech Scope, Interviews</div>
 </div><br>` },
 
-    'education.txt': { type: 'file', content: `<br><span class="info-text">--- Education History ---</span><br>
+    'education.txt': {
+        type: 'file', content: `<br><span class="info-text">--- Education History ---</span><br>
 <ul>
     <li><span class="prompt-host">MSc Cybersecurity</span> | University of London (Sep 2022 - Oct 2025)<br>Graduated with <b>Distinction</b></li>
     <li><span class="prompt-host">B.Tech Computer Science</span> | SRM University, AP (Jun 2018 - Jun 2022)<br>Graduated with strong grade of <b>8.6</b></li>
     <li><span class="prompt-host">High School (Math, Physics, Chem)</span> | Silver Oaks International Schools (Apr 2016 - Apr 2018)<br>Graduated with <b>86%</b></li>
 </ul><br>` },
 
-    'contact.txt': { type: 'file', content: `<br>
-<span class="key">Email:</span> <a href="mailto:ednaveen@example.com" class="link">ednaveen@example.com</a><br>
+    'contact.txt': {
+        type: 'file', content: `<br>
+<span class="key">Email:</span> <a href="mailto:edalanaveenchowdary@gmail.com" class="link">edalanaveenchowdary@gmail.com/a><br>
 <span class="key">LinkedIn:</span> <a href="https://linkedin.com/in/naveenedala" target="_blank" class="link">linkedin.com/in/naveenedala</a><br>
 <span class="key">GitHub:</span> <a href="https://github.com/naveenedala" target="_blank" class="link">github.com/naveenedala</a><br><br>` },
 
-    'experience': { 
-        type: 'dir', 
+    'experience': {
+        type: 'dir',
         content: {
-            'abmcpl.txt': { type: 'file', content: `<br><span class="success-text">Aditya Birla Management Corporation Pvt Ltd (ABMCPL)</span><br>
+            'abmcpl.txt': {
+                type: 'file', content: `<br><span class="success-text">Aditya Birla Management Corporation Pvt Ltd (ABMCPL)</span><br>
 <b>Manager - Associate Tech Lead</b> (Apr 2025 - Present)<br>
 - <b>Team & Project Governance:</b> Govern tech efforts across OAB aegis, managing 4 distinct projects.<br>
 - <b>E2E Product Management:</b> Oversee "lights-to-flag" lifecycle of 3 products (Design to Deployment/Maintenance).<br>
@@ -66,12 +72,14 @@ I am unique in that I can wear multiple hats - I can be a hands-on developer, a 
 - <b>GenAI Pioneer:</b> Spearheaded POC creation and conversion of 3 Generative AI products.<br>
 - <b>Full-Stack Execution:</b> Handled UX design, frontend, backend, microservices, and cloud deployment.<br>
 - <b>Team Building:</b> Led technical interviews to build a robust internal B2B product team.<br>` },
-            
-            'trilogy.txt': { type: 'file', content: `<br><span class="success-text">Crossover for Work / Trilogy</span><br>
+
+            'trilogy.txt': {
+                type: 'file', content: `<br><span class="success-text">Crossover for Work / Trilogy</span><br>
 <b>SDE - I (Innovator)</b> (Jan 2022 - Sep 2022)<br>
 Focused on agile software development, ideation, and Research and Development (RnD). Contributed to the development of many products and features utilized by customers inside and outside Trilogy and the ESW Capital group.<br>` },
-            
-            'tutor.txt': { type: 'file', content: `<br><span class="success-text">Independent Contractor / Private Tutor</span><br>
+
+            'tutor.txt': {
+                type: 'file', content: `<br><span class="success-text">Independent Contractor / Private Tutor</span><br>
 (Sep 2022 - Mar 2024)<br>
 Combined technical expertise with a passion for teaching. Offered personalized coaching through in-person and virtual classes.<br>
 Trained students in Software Development, Python Service Automation, Web Development, Linux operations, and guided them through certifications and business communication.<br>` }
@@ -89,7 +97,7 @@ const HELP_TEXT = `<br>Available commands:<br><br>
   <span class="info-text">Tip: Click any blue link to automatically execute the command!</span><br><br>`;
 
 const bootLogs = [
-    "INIT: version 2.88 booting",
+    "INIT: version 20.01 booting",
     "[ OK ] Starting system message bus.",
     "[ OK ] Starting system kernel... loaded.",
     "Mounting local filesystems: [ OK ]",
@@ -119,8 +127,8 @@ async function bootUp() {
 async function typeLine(text, speed = 15) {
     const p = document.createElement('div');
     p.className = 'output-block info-text';
-    
-    if(text.trim() === "") {
+
+    if (text.trim() === "") {
         p.innerHTML = "&nbsp;";
         outputHistory.appendChild(p);
         scrollToBottom();
@@ -128,7 +136,7 @@ async function typeLine(text, speed = 15) {
     }
 
     outputHistory.appendChild(p);
-    
+
     for (let i = 0; i < text.length; i++) {
         p.textContent += text.charAt(i);
         scrollToBottom();
@@ -187,6 +195,36 @@ hiddenInput.addEventListener('keydown', (e) => {
             hiddenInput.value = '';
             renderedInput.textContent = '';
         }
+    } else if (e.key === 'Tab') {
+        e.preventDefault();
+        const input = hiddenInput.value;
+        const args = input.trim().split(/\s+/);
+
+        let matches = [];
+        if (args.length === 1) {
+            // Completing base commands
+            const cmds = ['ls', 'cat', 'cd', 'pwd', 'clear', 'help', 'whoami', 'echo', 'date', 'rm', 'neofetch', 'theme'];
+            matches = cmds.filter(c => c.startsWith(args[0].toLowerCase()));
+        } else if (args.length === 2 && (args[0].toLowerCase() === 'cat' || args[0].toLowerCase() === 'cd')) {
+            // Completing files or directories
+            const currNode = getCurrentDirNode();
+            const keys = Object.keys(currNode);
+            matches = keys.filter(k => k.startsWith(args[1]));
+
+            // if it's cd and we matched a dir, append slash
+            if (matches.length === 1 && args[0].toLowerCase() === 'cd' && currNode[matches[0]].type === 'dir') {
+                matches[0] += '/';
+            }
+        }
+
+        if (matches.length === 1) {
+            if (args.length === 1) {
+                hiddenInput.value = matches[0] + ' ';
+            } else {
+                hiddenInput.value = args[0] + ' ' + matches[0];
+            }
+            renderedInput.textContent = hiddenInput.value;
+        }
     }
 });
 
@@ -206,25 +244,25 @@ function getCurrentDirNode() {
     return node;
 }
 
-window.executeCommand = async function(cmdRaw, fromClick = false) {
+window.executeCommand = async function (cmdRaw, fromClick = false) {
     if (isTyping || isBooting) return;
-    
+
     // Safety against people clicking the raw link literals in help
-    if (cmdRaw.includes('[')) return; 
+    if (cmdRaw.includes('[')) return;
 
     if (fromClick) {
         isTyping = true;
         hiddenInput.value = '';
         renderedInput.textContent = '';
-        
-        for(let i=0; i<cmdRaw.length; i++) {
+
+        for (let i = 0; i < cmdRaw.length; i++) {
             renderedInput.textContent += cmdRaw[i];
-            await new Promise(r => setTimeout(r, 40)); 
+            await new Promise(r => setTimeout(r, 40));
         }
-        await new Promise(r => setTimeout(r, 150)); 
+        await new Promise(r => setTimeout(r, 150));
         renderedInput.textContent = '';
         isTyping = false;
-        
+
         commandHistory.push(cmdRaw);
         historyIndex = commandHistory.length;
     }
@@ -242,7 +280,7 @@ window.executeCommand = async function(cmdRaw, fromClick = false) {
         outputHistory.innerHTML = '';
         // Nudge to type help
         appendHistoryBlock('', `<div class="info-text">Type 'help' to see a list of available commands.</div><br>`);
-        if(fromClick) { hiddenInput.focus(); }
+        if (fromClick) { hiddenInput.focus(); }
         return;
     }
 
@@ -297,7 +335,7 @@ window.executeCommand = async function(cmdRaw, fromClick = false) {
         } else {
             const currNode = getCurrentDirNode();
             let fileNode = null;
-            
+
             // Allow them to type `cat experience/abmcpl.txt` from '~'
             if (target.includes('/')) {
                 const parts = target.split('/');
@@ -323,12 +361,74 @@ window.executeCommand = async function(cmdRaw, fromClick = false) {
         }
     } else if (baseCmd === 'echo') {
         output = `<br>${args.slice(1).join(' ')}<br>`;
+    } else if (baseCmd === 'theme') {
+        const THEMES = {
+            'default': { '--bg-color': '#1e1e1e', '--text-color': '#cccccc', '--prompt-user': '#4ade80', '--prompt-host': '#60a5fa', '--cmd-color': '#dcdcaa', '--link-color': '#38bdf8' },
+            'matrix': { '--bg-color': '#0d0208', '--text-color': '#00ff41', '--prompt-user': '#00ff41', '--prompt-host': '#008f11', '--cmd-color': '#00ff41', '--link-color': '#008f11' },
+            'amber': { '--bg-color': '#1a1100', '--text-color': '#ffb000', '--prompt-user': '#ffb000', '--prompt-host': '#ff8c00', '--cmd-color': '#ffb000', '--link-color': '#ff8c00' }
+        };
+        if (!target) {
+            output = `<br>Available themes: <a class="link" onclick="executeCommand('theme default', true)">default</a>, <a class="link" onclick="executeCommand('theme matrix', true)">matrix</a>, <a class="link" onclick="executeCommand('theme amber', true)">amber</a><br>`;
+        } else if (THEMES[target]) {
+            for (let [key, val] of Object.entries(THEMES[target])) {
+                document.documentElement.style.setProperty(key, val);
+            }
+            output = `<br><span class="success-text">System theme visually configured to '${target}'.</span><br>`;
+        } else {
+            output = `<br><span class="error-text">theme: '${target}' not found.</span><br>`;
+        }
+    } else if (baseCmd === 'date') {
+        output = `<br>${new Date().toString()}<br>`;
+    } else if (baseCmd === 'rm') {
+        const fullCmd = args.join(' ');
+        if (fullCmd.includes('-rf / --no-preserve-root')) {
+            outputHistory.innerHTML = '';
+            outputHistory.style.display = 'none';
+            document.body.style.backgroundColor = '#000';
+            setTimeout(() => {
+                outputHistory.style.display = 'block';
+                document.body.style.backgroundColor = 'var(--bg-color)';
+                FILE_SYSTEM['about.txt'].content = `<br><span class="error-text">DATA CORRUPTED. FILE NOT FOUND.</span><br>`;
+                FILE_SYSTEM['skills.txt'].content = `<br><span class="error-text">DATA CORRUPTED. REBUILDING...</span><br>`;
+                bootUp();
+            }, 1500);
+            return;
+        } else if (fullCmd.includes('-rf /')) {
+            output = `<br><span class="error-text">rm: it is dangerous to operate recursively on '/'</span><br>
+<span class="info-text">Use --no-preserve-root to override this failsafe.</span><br>`;
+        } else {
+            output = `<br><span class="error-text">rm: Permission denied. You don't have write access to my portfolio! Nice try though.</span><br>`;
+        }
+    } else if (baseCmd === 'neofetch') {
+        output = `<br><div style="display: flex; gap: 40px; align-items: center; margin-left: 10px;">
+<div style="color: var(--prompt-user); font-weight: bold; white-space: pre; font-size: 12px; line-height: 1.1;">
+      /\\
+     /  \\
+    /____\\
+   / .  . \\
+  /   __   \\
+ /          \\
+/____________\\
+</div>
+<div style="white-space: pre; line-height: 1.3;">
+<span class="user" style="color: var(--prompt-user); font-weight: bold;">guest</span>@<span class="host" style="color: var(--prompt-host); font-weight: bold;">naveen-terminal</span>
+-----------------------
+<span style="color: var(--prompt-host); font-weight: bold;">OS:</span> NaveenOS v3.0 x64
+<span style="color: var(--prompt-host); font-weight: bold;">Host:</span> Web Application
+<span style="color: var(--prompt-host); font-weight: bold;">Kernel:</span> 20.01-WebJS
+<span style="color: var(--prompt-host); font-weight: bold;">Uptime:</span> Time isn't real
+<span style="color: var(--prompt-host); font-weight: bold;">Packages:</span> Too many (npm)
+<span style="color: var(--prompt-host); font-weight: bold;">Shell:</span> js-bash
+<span style="color: var(--prompt-host); font-weight: bold;">Terminal:</span> HTML/CSS
+<span style="color: var(--prompt-host); font-weight: bold;">CPU:</span> Human Intelligence
+</div>
+</div><br>`;
     } else {
         output = `<br><span class="error-text">command not found: ${baseCmd}. Type 'help' for available commands.</span><br>`;
     }
 
     appendHistoryBlock(`${currentPromptHTML} <span class="cmd-echo">${cmdRaw}</span>`, output);
-    if(fromClick) { hiddenInput.focus(); }
+    if (fromClick) { hiddenInput.focus(); }
 }
 
 window.onload = () => {
