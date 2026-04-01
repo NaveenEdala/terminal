@@ -1,0 +1,199 @@
+:root {
+    --bg-color: #1e1e1e;
+    --text-color: #cccccc;
+    --prompt-user: #4ade80; /* bright green */
+    --prompt-host: #60a5fa; /* bright blue */
+    --prompt-path: #c084fc; /* purple */
+    --cmd-color: #dcdcaa; /* yellow-ish for commands */
+    --error-color: #f87171; /* red */
+    --link-color: #38bdf8; /* light blue */
+    --font-family: 'JetBrains Mono', monospace;
+    --font-size: 15px;
+    --line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    overflow: hidden; /* We scroll the wrapper instead */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+/* Optional CRT scanline effect on body */
+body::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    opacity: 0.15;
+}
+
+#terminal-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #424242 transparent;
+    z-index: 1;
+}
+
+#terminal-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+#terminal-wrapper::-webkit-scrollbar-thumb {
+    background-color: #424242;
+    border-radius: 4px;
+}
+
+#terminal-content {
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#output-history {
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.history-line {
+    margin-bottom: 12px;
+}
+
+.output-block {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.prompt {
+    font-weight: 700;
+}
+
+.prompt .user { color: var(--prompt-user); }
+.prompt .host { color: var(--prompt-host); }
+.prompt .path { color: var(--prompt-path); }
+
+#input-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 30px; /* spacing for mobile keyboard padding often needed */
+}
+
+#rendered-input {
+    color: var(--cmd-color);
+    white-space: pre;
+    margin-left: 8px; /* space after the dollar sign */
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background-color: #cccccc;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+    margin-left: 1px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Mobile Keyboard Hack */
+#hidden-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    font-size: 16px; /* prevent iOS zoom on focus */
+}
+
+/* Output Styling */
+.cmd-echo {
+    color: var(--cmd-color);
+    margin-left: 8px;
+}
+
+.link {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--link-color);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+.error-text { color: var(--error-color); }
+.success-text { color: var(--prompt-user); }
+.info-text { color: var(--text-color); opacity: 0.8; }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin: 10px 0 20px 0;
+}
+
+.key { font-weight: bold; color: #a3a3a3; display: inline-block; width: 100px;}
+.value { color: var(--text-color); }
+
+pre {
+    font-family: var(--font-family);
+    margin: 10px 0;
+    white-space: pre-wrap;
+    color: var(--text-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 6px;
+}
+
+ul li::before {
+    content: "❯";
+    color: var(--prompt-host);
+    position: absolute;
+    left: 0;
+}

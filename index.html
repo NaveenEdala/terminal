@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal | Naveen Edala</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- JetBrains Mono Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="terminal-wrapper">
+        <div id="terminal-content">
+            <div id="output-history"></div>
+            <div id="input-line" class="hidden">
+                <span class="prompt"><span class="user">guest</span>@<span class="host">naveen-terminal</span>:<span class="path">~</span>$</span>
+                <span id="rendered-input"></span><span class="cursor"></span>
+            </div>
+            <!-- Hidden real input field for mobile/native keyboard support -->
+            <input type="text" id="hidden-input" autocomplete="off" spellcheck="false" autofocus>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
